@@ -1,0 +1,12 @@
+{
+    "name": "goodTab",
+    "description": "chrome however you like :)",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "icons": {
+        "128": "ico/good_tab.png"
+    },
+    "chrome_url_overrides" : { 
+        "newtab": "html/good_tab.html"
+    }
+}
