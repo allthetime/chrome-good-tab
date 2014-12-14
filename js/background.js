@@ -11,6 +11,9 @@ var backgroundUpload = document.querySelector('#background-upload');
 var db;
 var openDB = window.indexedDB.open("good-tab", 1)
 
+// document.body.style.opacity = "0";
+
+
 openDB.onupgradeneeded = function(e){
   console.log("initialized");
   db = e.target.result;
@@ -29,8 +32,14 @@ openDB.onsuccess = function(e){
     } else {
       var file = request.result
       var url = URL.createObjectURL(file);
-      document.body.style.background = "url("+url+") no-repeat center center fixed";
-      document.body.style.webkitBackgroundSize = "cover";
+      var invisibleImage = new Image();
+      invisibleImage.src = url;
+      invisibleImage.onload = function(){
+        // document.body.style.transition = "1s opacity";
+        document.body.style.background = "url("+url+") no-repeat center center fixed";
+        document.body.style.webkitBackgroundSize = "cover";
+        // document.body.style.opacity = "1";
+      }
     }
   };
 }
@@ -41,9 +50,8 @@ backgroundUpload.addEventListener('change', function(e){
   var store = db.transaction(['background-image'], 'readwrite').objectStore('background-image');
   var req = store.put(file, 'file');
   var url = URL.createObjectURL(file);
-  document.body.style.transition = "1s";
+  // document.body.style.transition = "1s";
   document.body.style.background = "url("+url+") no-repeat center center fixed";
   document.body.style.webkitBackgroundSize = "cover";
 }, false);
 
-document.body.onload = function(){ console.log("DONE"); }
