@@ -29,8 +29,7 @@ html, body {
 }
 
 html{
-    background: url("../img/background.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
+  background: rgb(10,10,10);
 }
 
 #center{
