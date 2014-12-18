@@ -1,6 +1,6 @@
 function Draggable(clickTarget,moveTarget){
   this.clickTarget = clickTarget;
-  this.moveTarget = moveTarget;
+  this.moveTarget = moveTarget || clickTarget;
   this.lastMarginTop = 0;
   this.lastMarginLeft = 0;
   this.lastY;
@@ -12,8 +12,8 @@ Draggable.prototype = {
     this.clickTarget.addEventListener('mousedown', this.startDrag.bind(this), false);
   },
   startDrag: function(e){
-    this.stop = this.stopDrag.bind(this)
-    this.drag = this.dragging.bind(this)
+    this.stop = this.stopDrag.bind(this);
+    this.drag = this.dragging.bind(this);
     document.addEventListener('mouseup', this.stop , false);
     document.addEventListener('mousemove', this.drag, false);
     this.lastY = e.y;

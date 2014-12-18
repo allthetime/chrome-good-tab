@@ -17,15 +17,17 @@
 
 
 html, body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Bitter;
-    font-size: 28px;
-    color: white;
-    overflow-y:hidden;
-    overflow-x:hidden;
-    -webkit-user-select: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Bitter;
+  font-size: 28px;
+  color: white;
+  overflow-y:hidden;
+  overflow-x:hidden;
+  -webkit-user-select: none;
+  text-shadow: -1px -1px 0px black, -1px 1px 0px black, 1px -1px 0px black, 1px 1px 0px black;
+
 }
 
 html{
@@ -33,39 +35,38 @@ html{
 }
 
 #center{
-    position: absolute;
-    bottom:0;
-    left: 70%;
-    transform: translate(-50%, -50%);
-    width:50vw;
-    text-align:center;
-    cursor: pointer;
+  position: absolute;
+  bottom:0;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  width:50vw;
+  text-align:center;
+  cursor: pointer;
 }
 
 h1{
-    margin: 0;
-    margin-bottom: 20px;
-    opacity: 0.8;
-    text-shadow: -1px -1px 0px black, -1px 1px 0px black, 1px -1px 0px black, 1px 1px 0px black;
-    text-align: right;
+  margin: 0;
+  margin-bottom: 20px;
+  opacity: 0.8;
+  text-align: right;
 }
 
 input {
-    background: rgba(0,0,0,0.3);
-    border: none;
-    outline: 1px dashed white;
-    width: 50vw;
-    font-size: 1em;
-    color: white;
-    padding:10px;
-    text-align: center;
-    font-family: Bitter;
+  background: rgba(0,0,0,0.3);
+  border: none;
+  outline: 1px dashed white;
+  width: 50vw;
+  font-size: 1em;
+  color: white;
+  padding:10px;
+  text-align: center;
+  font-family: Bitter;
 }
 
 #list{
   top:5%;
   left:5%;
-  font-size: 0.7em;
+  font-size: 1em;
   color:white;
   width: 400px;
   list-style-type:none;
@@ -73,7 +74,8 @@ input {
   margin:0;
   position:absolute;
   z-index: 99;
-  border-left:15px solid rgba(255,60,60,0.3);
+  /*border-left:15px solid rgba(255,60,60,0.3);*/
+  border-left:15px solid rgba(255,255,255,0.8);
 }
 
 #list li{
@@ -90,12 +92,12 @@ input {
   right:0;
   font-size:1em;
   cursor: pointer;
-  color:rgba(255,60,60,0.3);
+  color:rgba(255,255,255,0.3);
   border:0;
   transform:scaleX(1.2);
   outline:none;
 }
 
 .x:hover{
-  color:rgba(255,60,60,0.8);
+  color:rgba(255,255,255,0.8);
 }

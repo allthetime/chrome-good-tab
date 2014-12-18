@@ -2,13 +2,14 @@ function TODO(listBox, listInput){
   localStorage["list"] = localStorage["list"] || JSON.stringify([]);
   this.listBox = listBox;
   this.listInput = listInput;
+  this.previousState
 }
 
 TODO.prototype = {
 
   init: function(){
     this.listInput.addEventListener('keydown', this.addValueToList.bind(this), false);
-    this.listBox.addEventListener('click', this.removeListElement.bind(this), false);
+    this.listBox.addEventListener('click', this.handleClick.bind(this), false);
     window.addEventListener("storage", this.handleStorage.bind(this), false);
     this.parseLocalStorage("list").forEach(function(item){
       this.appendItemToList(item);
@@ -39,9 +40,12 @@ TODO.prototype = {
     this.listBox.appendChild(li);
   },
 
-  removeListElement: function(e){
+  handleClick: function(e){
     if (e.target.className == "x"){
       this.removeItemFromList(e.target.parentElement);
+    } else if (e.toElement.nodeName == "LI") {
+      // IMPLEMENT REORDERING OR HIGH-LIGHTING
+      e.target.style.color != "red" ? e.target.style.color = "red" : e.target.style.color = "white"
     }
   },
 
@@ -59,7 +63,9 @@ TODO.prototype = {
     var newValue = e.newValue;
     var oldValue = e.oldValue;
     var listData = this.parseLocalStorage(key);
+    // When there is an adittion
     if (newValue.length > oldValue.length) appendItemToList(listData[listData.length - 1]);
+    // When there is a subtraction
     if (newValue.length < oldValue.length) {
       this.listBox.innerHTML = ""
       this.parseLocalStorage("list").forEach(function(item){
