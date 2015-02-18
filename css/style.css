@@ -26,7 +26,7 @@ html, body {
   overflow-y:hidden;
   overflow-x:hidden;
   -webkit-user-select: none;
-  text-shadow: -1px -1px 0px black, -1px 1px 0px black, 1px -1px 0px black, 1px 1px 0px black;
+  /* text-shadow: -1px -1px 0px black, -1px 1px 0px black, 1px -1px 0px black, 1px 1px 0px black; */
 
 }
 
@@ -36,12 +36,15 @@ html{
 
 #center{
   position: absolute;
+  padding: 10px;
   bottom:0;
-  left: 70%;
-  transform: translate(-50%, -50%);
-  width:50vw;
+  /* left: 70%; */
+  /* transform: translate(-50%, -50%); */
+  width: 100vw;
   text-align:center;
   cursor: pointer;
+  box-sizing: border-box;
+  z-index: 100;
 }
 
 h1{
@@ -52,15 +55,17 @@ h1{
 }
 
 input {
-  background: rgba(0,0,0,0.3);
+  background: #FFF4CD;
   border: none;
-  outline: 1px dashed white;
-  width: 50vw;
+  border-radius: 5px;
+  width: 100%;
   font-size: 1em;
-  color: white;
+  color: rgb(31, 33, 43);
   padding:10px;
   text-align: center;
   font-family: Bitter;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
+  z-index: 100;
 }
 
 #list{
@@ -68,22 +73,36 @@ input {
   left:5%;
   font-size: 1em;
   color:white;
-  width: 400px;
+  width: 60vw;
   list-style-type:none;
   padding:0;
   margin:0;
   position:absolute;
-  z-index: 99;
+  z-index: 79;
   /*border-left:15px solid rgba(255,60,60,0.3);*/
-  border-left:15px solid rgba(255,255,255,0.8);
+  /* border-left:15px solid rgba(255,255,255,0.8); */
+  max-height: 95vh;
+  overflow-y: auto;
+  /* margin-bottom: 120px; */
+  overflow-x: hidden;
 }
 
+#list::-webkit-scrollbar { width: 0 !important; }
+
 #list li{
-  padding:10px;
-  margin:2px;
-  background: rgba(30,30,30,0.3);
+  padding: 12px;
+  margin: 1px;
+  background: rgba(255, 224, 219, 0.71);
   word-wrap: break-word;
   position:relative;
+  border-radius: 6px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(0,0,0,0.8);
+}
+
+#list li:nth-last-child(1){
+    margin-bottom: 120px;
 }
 
 .x{

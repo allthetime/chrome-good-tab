@@ -6,7 +6,7 @@
     "icons": {
         "128": "ico/good_tab.png"
     },
-    "chrome_url_overrides" : { 
+    "chrome_url_overrides" : {
         "newtab": "html/good_tab.html"
     }
 }

@@ -14,12 +14,17 @@ TODO.prototype = {
     this.parseLocalStorage("list").forEach(function(item){
       this.appendItemToList(item);
     }.bind(this));
+
   },
 
   addValueToList: function(e){
     if (e.keyCode === 13) {
-      if (e.target.value !== "") this.appendToLocalStorage("list", e.target.value);
-      e.target.value = "";
+      if (e.ctrlKey === true) {
+        window.open("http://google.com/#q="+e.target.value, '_top');
+      } else {
+        if (e.target.value !== "") this.appendToLocalStorage("list", e.target.value);
+        e.target.value = "";
+      }
     }
   },
 
@@ -40,12 +45,26 @@ TODO.prototype = {
     this.listBox.appendChild(li);
   },
 
+  colors: ["white","red","yellow","orange","grey"],
+
   handleClick: function(e){
     if (e.target.className == "x"){
       this.removeItemFromList(e.target.parentElement);
     } else if (e.toElement.nodeName == "LI") {
       // IMPLEMENT REORDERING OR HIGH-LIGHTING
-      e.target.style.color != "red" ? e.target.style.color = "red" : e.target.style.color = "white"
+      var style = e.target.style
+      if (style.color == ""){ style.color = "red" }
+      else {
+        next_index = this.colors.indexOf(style.color) + 1
+        if (next_index >= this.colors.length) {
+            next_index = 0
+        }
+        style.color = this.colors[next_index]
+
+    }
+
+
+      // e.target.style.color != "red" ? e.target.style.color = "red" : e.target.style.color = "white"
     }
   },
 

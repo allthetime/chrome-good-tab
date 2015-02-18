@@ -30,3 +30,4 @@ Draggable.prototype = {
     this.moveTarget.style.marginLeft = this.lastMarginLeft - (this.lastX - e.x);
   },
 }
+
